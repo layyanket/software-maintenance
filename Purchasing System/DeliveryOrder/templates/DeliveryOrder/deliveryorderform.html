@@ -1,12 +1,22 @@
 ﻿{% extends "app/layout.html" %}
 
 {% block content %}
+
+  <div><a href="/purchaseorderhistory">《 Go to View Purchase Order ID</a></div>
+
 <div class="formpurchaseorder margintop" >
     <form class="quotationfind" action="fillingdeliveryorder" method="get">
 
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="pur_id" id="pur_id" placeholder="Purchase Order ID" aria-label="Purchase Order ID"
             aria-describedby="button-addon2">
+            <!--<select>S
+              <option value="volvo">PO1001</option>
+              <option value="saab">PO1002</option>
+              <option value="mercedes">PO1003</option>
+              <option value="audi">PO1004</option>
+            </select>
+                -->
           <div class="input-group-append">
            <button type="submit" class="btn btn-outline-info btn-hover btn-rounded waves-effect">Find</button>
           </div>

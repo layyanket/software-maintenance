@@ -1,6 +1,32 @@
-{% extends "app/layout.html" %}
+﻿{% extends "app/layout.html" %}
 
 {% block content %}
+
+
+  <div class="other1"><a href="/quotationhistory">《 Go to View Quotation ID</a></div>
+
+<!--
+    <li>
+        <div class="alignleft noTopMargin" style="width: 188px; ">
+            <a href="/purchaseorderform">Go to Issue Purchase Order Page</a>
+        </div>
+        <div style="text-align:right;">
+            <a href="/deliveryorderform">Go to Record Delivery Order Page</a>
+        </div>
+    </li>
+
+
+      <div class="other2"><a href="/purchaseorderhistory">《Go to View Purchase Order Page》</a></div>
+
+
+
+<div>
+      <a align="left" href="/quotationhistory">《Go to View Quotation Page》</a>
+     
+      <a float="right"; href="/purchaseorderhistory">《Go to View Purchase Order Page》</a>  
+</div>
+-->
+
 <div class="formpurchaseorder margintop" >
     <form class="quotationfind" action="fillingpurchaseorder" method="get">
 
@@ -53,6 +79,7 @@
                 </tr>
             </thead>
             <tbody name="item_rows" >
+                
                 {% for r in rows %}
                 <tr>
                     <td><input type="text" class="form-control" name="item_id" value="{{r.item_id}}" readonly></td>

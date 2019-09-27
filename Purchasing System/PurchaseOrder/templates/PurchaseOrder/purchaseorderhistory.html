@@ -1,10 +1,33 @@
 {% extends "app/layout.html" %}
 
 {% block content %}
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Find PO ID" title="Type in a ID">
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("xxx");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+  }
+}
+</script>
+
 <div class="purcahseorderhistory margintop" >
     
     <form action="purchaseorderhistorydetails" method="GET">
-        <table class="table table-striped margintop">
+        <table id="xxx" class="table table-striped margintop">
           <thead>
             <tr>
               <th scope="col" class="fontlabel">Purchase Order ID</th>
@@ -14,6 +37,7 @@
             </tr>
           </thead>
           <tbody>
+
               {% for r in rows %}
             <tr>
                  <td><button type="submit" name="po_id" value="{{r.purchase_order_id}}" class="btn btn-info" >{{r.purchase_order_id}}</button></td>
