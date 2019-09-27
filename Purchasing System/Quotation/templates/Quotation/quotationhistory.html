@@ -2,32 +2,10 @@
 
 {% block content %}
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Find Quotation ID" title="Type in a ID">
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("xxx");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
 <div class="purchaseorderhistory margintop" action="menu">
 
     <form action="quotationhistorydetails" method="GET">
-        <table id="xxx" class="table table-striped margintop">
+        <table class="table table-striped margintop">
             <thead>
                 <tr>
                     <th scope="col">Quotation ID</th>
@@ -44,7 +22,7 @@ function myFunction() {
                     <td>{{r.person_id.person_id}}</td>
                     <td>{{r.vendor_id}}</td>
                     <td>{{r.time_created}}</td>
-                    <td><a class="btn btn-info buttonsize1" href="/purchaseorderform">Issue PurchaseOrder</a></td>
+                    <td><button type="submit" class="btn btn-info buttonsize1">Issue Purchase Order</button></td>
                 </tr>
                 {% endfor %}
             </tbody>
